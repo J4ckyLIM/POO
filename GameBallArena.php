@@ -1,10 +1,10 @@
 <?php
-// require "GameBallPerso.php";
+
 class GameBallArena {
 
     protected $Fighters = [];
 
-    public function __construct($Fighters){
+    public function __construct($Fighters) {
         $this->setFighters($Fighters);
     }
 
@@ -18,44 +18,35 @@ class GameBallArena {
             
             if($random_1 != $random_2){
                 echo "<br><br>Nous sommes au tour " . $round . "<br><br>";
-                try{
+                try{                    
                     $this->Fighters[$random_1]->Hit($this->Fighters[$random_2]);
                     $this->Fighters[$random_2]->Description();
-                }catch(Exception $e){
-                    if($e->getMessage() == "RIP"){
+                }
+                catch(Exception $e) {
+                    if($e->getMessage() == "RIP") {
                         $this->updateFighters($random_2);
-
-                     //   echo '<br><br>dddd : ' . sizeof($this->Fighters) . '<br>';
-    
-                    //    echo '<br><br>' . $countFighters . '<br><br>';
                     }
-                   
-                    //echo $e->getMessage();
                 }
                 $round++;
             }
-        }while(sizeof($this->getFighters()) > 1);
+        }
+        while(sizeof($this->getFighters()) > 1);
 
         echo $this->Fighters[0]->getName() . " a gagné<br>";
     }
 
-    public function updateFighters($index){
+    public function updateFighters($index) {
         echo $this->Fighters[$index]->getName() . " est mort ! Terrible !!!<br>";
         
         unset($this->Fighters[$index]);
         $this->setFighters(array_values($this->Fighters));
     }
     
-    public function getFighters(){
+    public function getFighters() {
         return $this->Fighters;
     }
-    public function setFighters($Fighters){
+    
+    public function setFighters($Fighters) {
       $this->Fighters = $Fighters;
-    }
-    public function isCrit($Crit){
-        $Crit = false;
-        if(mt_rand(0 , 100) <= $Crit){
-            $Crit = true;
-        }
     }
 }

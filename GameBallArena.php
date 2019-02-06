@@ -1,5 +1,5 @@
 <?php
-
+// require "GameBallPerso.php";
 class GameBallArena {
 
     protected $Fighters = [];
@@ -10,17 +10,16 @@ class GameBallArena {
 
     public function beginFight(){
         $round = 1; 
-        echo "----- Il y a " . sizeof($this->Fighters) . '-----<br><br>';
+        echo "----- Il y a " . sizeof($this->Fighters) . " combattants -----<br><br>";
         do {
             $countFighters = sizeof($this->Fighters)-1;
             $random_1 = mt_rand(0, $countFighters);
             $random_2 = mt_rand(0, $countFighters);
             
             if($random_1 != $random_2){
+                echo "<br><br>Nous sommes au tour " . $round . "<br><br>";
                 try{
-                    echo "Nous sommes au tour " . $round . "<br><br>";
                     $this->Fighters[$random_1]->Hit($this->Fighters[$random_2]);
-                    $round++;
                     $this->Fighters[$random_2]->Description();
                 }catch(Exception $e){
                     if($e->getMessage() == "RIP"){
@@ -33,16 +32,18 @@ class GameBallArena {
                    
                     //echo $e->getMessage();
                 }
+                $round++;
             }
         }while(sizeof($this->getFighters()) > 1);
 
-        echo $Fighters[$random_1] . "à gagner ";
+        echo $this->Fighters[0]->getName() . " a gagné<br>";
     }
 
     public function updateFighters($index){
+        echo $this->Fighters[$index]->getName() . " est mort ! Terrible !!!<br>";
+        
         unset($this->Fighters[$index]);
         $this->setFighters(array_values($this->Fighters));
-        echo Fighters[$index] . " est mort ! Terrible !!!";
     }
     
     public function getFighters(){
@@ -50,5 +51,11 @@ class GameBallArena {
     }
     public function setFighters($Fighters){
       $this->Fighters = $Fighters;
+    }
+    public function isCrit($Crit){
+        $Crit = false;
+        if(mt_rand(0 , 100) <= $Crit){
+            $Crit = true;
+        }
     }
 }

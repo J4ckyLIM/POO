@@ -18,7 +18,6 @@ Class Character {
     public function getName(){
         return $this->_Name;
     }
-
     public function getHP() {
         return $this->_HP;
     }
@@ -37,14 +36,14 @@ Class Character {
     public function setName($Name) {
         if ($Name == '') 
         {
-            echo " On entre pas sans papiers !";
+            echo "On entre pas sans papiers !";
         }
         $this->_Name = $Name;
     }
     public function setHP($HP) {
         if( $HP <= 0) 
         {
-            throw new Exception('RIP');
+            throw new Exception("RIP");
             return;
         }
         $this->_HP = $HP;
@@ -52,7 +51,7 @@ Class Character {
     public function setAttack($Attack) {
         if( $Attack <= 0) 
         {
-            throw new Exception(' Rien dans les bras ..!');
+            throw new Exception("Rien dans les bras ..!");
             return;
         }
         $this->_Attack = $Attack;
@@ -60,7 +59,7 @@ Class Character {
     public function setDefence($Defence) {
         if( $Defence <= 0) 
         {
-            throw new Exception('Faut savoir encaisser ... Terrible !');
+            throw new Exception("Faut savoir encaisser ... Terrible !");
             return;
         }
         $this->_Defence = $Defence;
@@ -68,7 +67,7 @@ Class Character {
     public function setAgility($Agility) {
         if( $Agility <= 0) 
         {
-            throw new Exception('Fallait faire des étirements !');
+            throw new Exception("Fallait faire des étirements !");
             return;
         }
         $this->_Agility = $Agility;
@@ -76,7 +75,7 @@ Class Character {
     public function setCrit($Crit) {
         if( $Crit <= 0) 
         {
-            throw new Exception('Pas de chance');
+            throw new Exception("Pas de chance");
             return;
         }
         $this->_Crit = $Crit;
@@ -91,17 +90,19 @@ Class Character {
     }
 
     public function Hit($CharacterToHit){
-        $Damage = $this->_Attack - $CharacterToHit->_Defence;
-        $Damage = ($Damage < 0) ? $Damage * -1 : $Damage;
-
-        $CharacterToHit->setHP($CharacterToHit->getHP() - $Damage);
-        echo $this->getName() . " a infligé des dégats à " . $CharacterToHit->getName() . '<br>';
-    }
-
-    public function isCrit($Crit){
-        if(mt_rand(0 , 100) <= $Crit){
-
+        $Crit = mt_rand(1,100);
+        if ($Crit <= $this->_Agility) {
+            $Damage = ($this->_Attack * 2 ) - $CharacterToHit->_Defence;
+            $Damage = ($Damage < 0) ? $Damage * -1 : $Damage;
+            echo $this->getName() . " inflige un coup critique de " . $Damage ." dégats à " . $CharacterToHit->getName() . "<br>" ;
+            
         }
+        else {
+            $Damage = $this->_Attack - $CharacterToHit->_Defence;
+            $Damage = ($Damage < 0) ? $Damage * -1 : $Damage;
+            echo $this->getName() . " a infligé " . $Damage . " points de dégats à " . $CharacterToHit->getName() . '<br>';
+        }
+        $CharacterToHit->setHP($CharacterToHit->getHP() - $Damage);
     }
 
 }

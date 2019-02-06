@@ -1,14 +1,19 @@
 <?php
-
-require "GameBallPerso.php";
-require "GameBallArena.php";
+require_once "GameBallWarrior.php";
+require_once "GameBallRogue.php";
+require_once "GameBallMonk.php";
+require_once "GameBallPaladin.php";
+require_once "GameBallHit.php";
+require_once "GameBallCharacter.php";
+require_once "GameBallArena.php";
 
 $GameBallArena = new GameBallArena(
     [
-        new Character('Papy Nookz',21,21,8,2,5),
-        new Character ('Pou13',20,50,2,2,5),
-        new Character ('Yrm',100,8,5,100,5),
-        new Character ('Jean Nemuuuuuuuuuuuuu',15,8,37,5,5)
+        new Paladin ('Papy Nookz',150,20,5,100,5),
+        new Rogue ('Pou13',150,20,5,100,5),
+        new Monk ('Yrm',150,20,5,100,5),
+        new Warrior ('Jean Nemuuuuuuuuuuuuu',150,20,5,100,5)
+        //new Character ('Pochaontas',250,40,35,1,1)
     ]
 );
 $GameBallArena->beginFight();

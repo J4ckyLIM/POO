@@ -9,10 +9,10 @@ require_once "GameBallArena.php";
 
 $GameBallArena = new GameBallArena(
     [
-        new Paladin ('Papy Nookz',150,20,5,25,5),
-        new Rogue ('Pou13',150,20,5,25,5),
-        new Monk ('Yrm',150,20,55,25,5),
-        new Warrior ('Jean Nemuuuuuuuuuuuuu',150,20,5,25,5)
+        new Paladin ('Papy Nookz',mt_rand(170,180),mt_rand(15,20),mt_rand(5,8),mt_rand(25,35),5),
+        new Rogue ('Pou13',mt_rand(125,135),mt_rand(30,39),mt_rand(2,5),mt_rand(20,30),5),
+        new Monk ('Yrm',mt_rand(135,140),mt_rand(15,25),mt_rand(2,5),mt_rand(25,35),5),
+        new Warrior ('Jean Nemuuuuuuuuuuuuu',mt_rand(145,155),mt_rand(20,27),mt_rand(2,5),mt_rand(20,25),5)
         //new Character ('Pochaontas',250,40,35,1,1)
     ]
 );

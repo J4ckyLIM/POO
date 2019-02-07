@@ -11,7 +11,7 @@ Class Paladin extends Character implements GameBallHit {
         $Crit = mt_rand(1,100);
         if ($Crit <= $this->_Agility) {
             $Damage = $this->_Attack - $CharacterToHit->_Defence;
-            $this->_HP += 5;
+            $this->_HP += 15;
             $Damage = ($Damage < 0) ? $Damage * -1 : $Damage;
             echo $this->getName() . " utilise JUGEMENT et inflige " . $Damage . " dégats à " . $CharacterToHit->getName() . "<br>" ;
                 

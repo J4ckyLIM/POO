@@ -11,7 +11,7 @@ class GameBallArena {
     public function beginFight(){
         $round = 1; 
         echo "----- Il y a " . sizeof($this->Fighters) . " combattants -----<br><br>";
-        do {
+            do {
             $countFighters = sizeof($this->Fighters)-1;
             $random_1 = mt_rand(0, $countFighters);
             $random_2 = mt_rand(0, $countFighters);
@@ -30,10 +30,11 @@ class GameBallArena {
                 $round++;
             }
         }
+    
         while(sizeof($this->getFighters()) > 1);
 
         echo $this->Fighters[0]->getName() . " a gagné<br>";
-    }
+}
 
     public function updateFighters($index) {
         echo $this->Fighters[$index]->getName() . " est mort ! Terrible !!!<br>";

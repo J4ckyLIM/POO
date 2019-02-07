@@ -13,12 +13,18 @@ Class Paladin extends Character implements GameBallHit {
             $Damage = $this->_Attack - $CharacterToHit->_Defence;
             $this->_HP += 15;
             $Damage = ($Damage < 0) ? $Damage * -1 : $Damage;
+            if($CharacterToHit->_Defence >= $this->_Attack){
+                $Damage = 1;
+            }
             echo $this->getName() . " utilise JUGEMENT et inflige " . $Damage . " dégats à " . $CharacterToHit->getName() . "<br>" ;
                 
         }
         else {
             $Damage = $this->_Attack - $CharacterToHit->_Defence;
             $Damage = ($Damage < 0) ? $Damage * -1 : $Damage;
+            if($CharacterToHit->_Defence >= $this->_Attack){
+                $Damage = 1;
+            }
             echo $this->getName() . " donne un coup de marteau à deux mains et inflige " . $Damage . " points de dégats à " . $CharacterToHit->getName() . "<br>";
         }
         $CharacterToHit->setHP($CharacterToHit->getHP() - $Damage);

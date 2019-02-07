@@ -1,7 +1,8 @@
 <?php
+require_once "GameBallArena.php";
 require_once "GameBallHit.php";
 require_once "GameBallCharacter.php";
-Class Rogue extends Character implements GameBallHit {
+Class Pocahontas extends Character implements GameBallHit {
     
     final function __construct($Name,$HP, $Attack,$Defence,$Agility,$Crit){
         parent::__construct($Name,$HP, $Attack,$Defence,$Agility,$Crit);
@@ -10,21 +11,21 @@ Class Rogue extends Character implements GameBallHit {
     
         $Crit = mt_rand(1,100);
         if ($Crit <= $this->_Agility) {
-            $Damage = ($this->_Attack * 2 ) - $CharacterToHit->_Defence;
+            $Damage = 0;
             ($Damage = ($Damage < 0) ? $Damage * -1 : $Damage);
             if($CharacterToHit->_Defence >= $this->_Attack){
-                $Damage = 1;
+                $Damage = 0;
             }
-            echo $this->getName() . " utlise DELUGE DE LAMES et inflige " . $Damage . " dégats à " . $CharacterToHit->getName() . "<br>";
+            echo $this->getName() . " mange un snickers et inflige " . $Damage . " dégats à " . $CharacterToHit->getName() ." parce que le sucre ça rend gentil<br>";
                 
         }
         else {
-            $Damage = $this->_Attack - $CharacterToHit->_Defence;
+            $Damage = 1;
             $Damage = ($Damage < 0) ? $Damage * -1 : $Damage;
             if($CharacterToHit->_Defence >= $this->_Attack){
                 $Damage = 1;
             }
-            echo $this->getName() . " frappe avec ses dagues et inflige " . $Damage . " points de dégats à " . $CharacterToHit->getName() . '<br>';
+            echo $this->getName() . " lance un snickers et inflige " . $Damage . " points de dégats à " . $CharacterToHit->getName() . " adispoutoa<br>";
         }
         $CharacterToHit->setHP($CharacterToHit->getHP() - $Damage);    
     }

@@ -16,6 +16,7 @@
         <img src="image/warrior.jpg" class="charImage">
         <img src="image/rogue.png" class="charImage">
         <img src="image/paladin.jpg" class="charImage">
+        <img src="image/pochaontas.png" class="charImage">
     </section>
     <section class="fightingPart">
 <?php

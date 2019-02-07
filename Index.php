@@ -1,3 +1,23 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Caesar+Dressing" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <title> Game Ball's Legends </title>
+</head>
+<h1 id="gameTitle"> Game Ball's Legends <i class="fab fa-d-and-d"></i></h1>
+<body>
+    <section class="description">
+        <p id="gameEntrance"> Les joueurs arrivent dans l'arène <i class="fas fa-walking"></i><i class="fas fa-dungeon"></i></p>
+    </section>
+    <section class="charProfil">
+        <img src="image/monk.jpg" class="charImage">
+        <img src="image/warrior.jpg" class="charImage">
+        <img src="image/rogue.png" class="charImage">
+        <img src="image/paladin.jpg" class="charImage">
+    </section>
+    <section class="fightingPart">
 <?php
 require_once "GameBallWarrior.php";
 require_once "GameBallRogue.php";
@@ -18,3 +38,12 @@ $GameBallArena = new GameBallArena(
     ]
 );
 $GameBallArena->beginFight();
+
+?>
+    </section>
+    <footer class="resetButton">
+    <a href="http://localhost:8888/POO/"> <i class="fab fa-firefox"></i></a>
+    </footer>
+</body>
+</html>
+

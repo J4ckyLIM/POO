@@ -1,0 +1,69 @@
+#gameTitle{
+    font-size: 150px;
+    text-align: center;
+    border: 8px solid black;
+    border-radius: 30px;
+    font-family: 'Caesar Dressing', cursive;
+}
+
+h1{
+    padding-bottom: 60px;
+    font-family: 'Caesar Dressing', cursive;
+}
+
+.fa-d-and-d{
+    color:  red;
+}
+
+.fightingPart{
+    text-align: center;
+    font-family: 'Caesar Dressing', cursive;
+    padding-bottom: 75px;
+}
+
+.description{
+    text-align: center;
+    font-family: 'Caesar Dressing', cursive;
+}
+
+#gameEntrance{
+    font-size: 50px;
+    font-family: 'Caesar Dressing', cursive;
+}
+
+body{
+    background-image: url("image/background.png");
+}
+
+.charImage{
+    width: 150px;
+    height: 150px;
+    border: 3px solid black;
+    border-radius: 7px;
+}
+
+.charProfil{
+    display: flex;
+    justify-content: space-around;
+    align-content: center;
+    padding-bottom: 60px;
+}
+
+.fa-firefox:hover{
+        color: burlywood; 
+        animation: allblink 0.7s infinite;
+    }
+    @keyframes allblink { 
+        0% { }
+        50% {color: red; } 
+    }
+
+.fa-firefox{
+    font-size: 50px;
+}
+
+.resetButton{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

@@ -1,7 +1,7 @@
 <?php
 
 
-Class Character implements GameBallHit {
+abstract Class Character implements GameBallHit {
     protected $_Name;
     protected $_HP;
     protected $_Attack;
